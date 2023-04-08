@@ -64,33 +64,3 @@ public:
         
     }
 }; 
-class Solution
-{
-	public:
-	//Function to find sum of weights of edges of the Minimum Spanning Tree.
-    int spanningTree(int V, vector<vector<int>> adj[])
-    {
-        vector<pair<int,pair<int,int>>> edges ;
-        for(int i = 0 ; i < V ; i++){
-            for(auto it : adj[i]){
-                int node = it[0] ;
-                int wt = it[1] ;
-                edges.push_back({wt, {i,node}}) ;
-            }
-        }
-        sort(edges.begin(), edges.end() )  ;
-        Disjoint_set ds(V) ;
-        int sum = 0 ;
-        for(auto it : edges ){
-            int wt = it.first ;
-            int u = it.second.first ;
-            int v = it.second.second ;
-            if(ds.findParent(u) != ds.findParent(v) ){
-                sum += wt ;
-                ds.unionBySize(u,v) ;
-            }
-        }
-        return sum ;
-        
-    }
-};
