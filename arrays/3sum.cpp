@@ -46,7 +46,7 @@ vector<vector<int>> findTriplets3(vector<int>arr, int n, int K) {
 	vector< vector<int> > ans ;
 	sort(arr.begin() , arr.end() ) ;
 	for(int i = 0 ; i< n ; i++ ){
-		if(i > 0 && arr[i] == arr[i-1]) continue ;
+		if(i > i + 1 && arr[i] == arr[i-1]) continue ;
 		int j = i + 1 , k = n - 1 ;
 		while(j < k ){
 			int sum = arr[i] + arr[j] + arr[k] ;
