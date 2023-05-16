@@ -19,7 +19,9 @@ int team(vector <int> & skill, int n)
 
 
 
-
+/*
+time complexity : O(2NlogN)
+*/
 
 // int cnt = 0 ;
 void merge(vector<int> &arr, int low, int mid, int high) {
@@ -72,9 +74,9 @@ int countVal(vector<int> &arr , int low , int mid , int high ){
 }
 
 int mergeSort(vector<int> &arr, int low, int high) {
-    if (low >= high) return ;
-    int mid = (low + high) / 2 ;
     int cnt = 0 ;
+    if (low >= high) return cnt ;
+    int mid = (low + high) / 2 ;
     cnt += mergeSort(arr, low, mid);  // left half
     cnt += mergeSort(arr, mid + 1, high); // right half
     cnt += countVal(arr , low , mid , high ) ;
@@ -83,7 +85,6 @@ int mergeSort(vector<int> &arr, int low, int high) {
 }
 int team(vector <int> & skill, int n)
 {
-    mergeSort(skill , 0 , n - 1 ) ;
-    return cnt ;
+    return mergeSort(skill , 0 , n - 1 ) ;
+    
 }
-
