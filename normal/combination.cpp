@@ -9,4 +9,4 @@ int findNcr(int n, int r)
     return ans ;
 }
 
-//time complexity : O()
+//time complexity : O(r)
