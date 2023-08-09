@@ -77,38 +77,41 @@ void setZeros(vector<vector<int>> &arr)
 {
     bool firstCol = false;
     bool firstRow = false;
-
+    
+    // checking for the first col O(n)
     for (int i = 0; i < arr.size(); i++)
     {
-        if (arr[0][i] == 0)
+        if (arr[i][0] == 0)
         {
             firstCol = true;
             break;
         }
     }
-
-    for (int i = 0; i < arr[0].size(); i++)
+    
+    // checking for the first row O(m)
+    for (int i = 0; i < arr[0].size(); i++)  
     {
-        if (arr[i][0] == 0)
+        if (arr[0][i] == 0)
         {
             firstRow = true;
             break;
         }
     }
 
-
+    // checking for the entire matrix O(n*m)
     for (int i = 1; i < arr.size(); i++)
     {
         for (int j = 1; j < arr[0].size(); j++)
         {
             if (arr[i][j] == 0)
             {
+                arr[i][0] = 0;
                 arr[0][j] = 0;
-                arr[j][0] = 0;
             }
         }
     }
 
+    // updating the matrix for row
     for (int i = 1; i < arr.size(); i++)
     {
         if (arr[i][0] == 0)
@@ -119,16 +122,19 @@ void setZeros(vector<vector<int>> &arr)
             }
         }
     }
-    for (int i = 1; i < arr[0].size(); i++)
+    
+    // updating the matrix for col
+    for (int j = 1; j < arr[0].size(); j++)  // Corrected the loop index variable from i to j
     {
-        if (arr[0][j] == 0;)
+        if (arr[0][j] == 0)  // Removed the unnecessary semicolon
         {
-            for (int j = 1; j < arr.size(); j++)
+            for (int i = 1; i < arr.size(); i++)
             {
                 arr[i][j] = 0;
             }
         }
     }
+    
     if (firstRow)
     {
         for (int i = 0; i < arr[0].size(); i++)

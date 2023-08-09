@@ -21,6 +21,7 @@ int team(vector <int> & skill, int n)
 
 /*
 time complexity : O(2NlogN)
+time complexity : O(N)
 */
 
 // int cnt = 0 ;
