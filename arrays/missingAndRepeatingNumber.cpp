@@ -90,3 +90,6 @@ vector<int> findMissingRepeatingNumbers(vector<int> a)
     long long y = x - val1;
     return {(int)x, (int)y};
 }
+
+
+
