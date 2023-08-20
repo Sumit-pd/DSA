@@ -22,7 +22,7 @@ int row(int n)
 }
 
 /*print the entire pascal triangle*/
-#include <bits/stdc++.h>
+
 using namespace std ;
 vector<int> findRow(int n){
     int ans = 1 ;
