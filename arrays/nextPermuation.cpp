@@ -1,26 +1,35 @@
-vector<int> nextGreaterPermutation(vector<int> &arr) {
-    int n = arr.size() ;
-    int ind = -1 ; // for finding the breakpoint
+#include <bits/stdc++.h> 
+void reverseArr(vector<int> &arr , int start , int end ){
+    while(start < end ){
+        swap(arr[start],arr[end]) ;
+        start++ ;
+        end-- ;
+    }
+}
+vector<int> nextPermutation(vector<int> &arr, int n)
+{
+    //find the break point 
+    int ind  = -1 ;
     for(int i = n - 2 ; i >= 0 ; i-- ){
-        if(arr[i] < arr[i+1]){
-            ind = i;
-            break;
+        if(arr[i] < arr[i+1]) {
+            ind = i ;
+            break ;
         }
-    }//O(n)
-    if(ind == -1 ){
-        reverse(arr.begin() , arr.end() ) ;
+    }
+    if(ind == -1){
+        // this is the last permutation so return the first permutation
+        reverseArr(arr,0,n-1) ;
         return arr ;
     }
-    //O(n)
-    //finding the element that is greater than the arr[ind]
-    for(int i = n - 1 ;i > ind ;i-- ){
+    //find the next greater element from right of the array
+    for(int i = n -1 ; i>= ind ; i++ ){
         if(arr[i] > arr[ind]){
-            swap(arr[i] , arr[ind]) ;
-            break; 
+            swap(arr[ind] , arr[i]) ;
+            break ;
         }
     }
-    reverse(arr.begin() + ind + 1 , arr.end()) ; // +1 is added because the array is based on zero based indexing
+    reverseArr(arr,ind + 1 , n -1 ) ;
     return arr ;
-}
 
-// for better use next_permuation from c++ stl
+
+}

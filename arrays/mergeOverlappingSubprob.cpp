@@ -1,61 +1,26 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 /*
-#brute
--sort the elements of the vector
--check arr[i].second and arr[i+1].first
-- we will be having two loops so for checking
-time complexity : O(NlogN) + O(N)
-space complexity : O(N)
+
+    intervals[i][0] = start point of i'th interval
+    intervals[i][1] = finish point of i'th interval
+
 */
-vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>> &arr)
-{
-    sort(arr.begin(), arr.end());
-    int n = arr.size();
-    vector<vector<int>> ans;
-    for (int i = 0; i < n; i++)
-    {
-        int start = arr[i][0];
-        int end = arr[i][1];
-        if (!ans.empty() && end <= ans.back()[1])
-        {
-            // the end the is smaller
-
-            continue;
-        }
-
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[j][0] <= end)
-            {
-                end = max(end, arr[j][1]);
-            }
-            else
-            {
-                break;
-                //we are breaking the loop because the array is sorted and we do not need to check futher
-            }
-        }
-
-        ans.push_back({start, end});
-    }
-    return ans;
+bool cmp(const vector<int> &a , const vector<int> &b){
+    return a[0] < b[0] ;
 }
-/*
--better
-*/
-vector<vector<int>> mergeOverlappingIntervals(vector< vector<int> > arr){
-    int n = arr.size() ;
-    vector< vector<int> > ans ;
-    for (int i = 0; i < n; i++)
-    {
-        if (ans.empty() || arr[i][0] > ans.back()[1])
-        {
-            ans.push_back(arr[i]) ;
+vector<vector<int>> mergeIntervals(vector<vector<int>> &intervals)
+{
+    int n = intervals.size() ;
+    vector<vector<int>> ans ;
+    sort(intervals.begin() , intervals.end() , cmp ) ;
+    ans.push_back(intervals[0]) ; // this is the first element of the intervals array
+    for(int i = 1 ; i < n ;i++ ){
+        if(ans.back()[1] >= intervals[i][0]){
+            ans.back()[1] = max(intervals[i][1] , ans.back()[1]) ;
         }
         else{
-            ans.back()[1] = max(ans.back()[1] , arr[i][1]) ;
+            ans.push_back(intervals[i]) ;
         }
     }
-    return ans;
-    
+    return ans ;
 }
