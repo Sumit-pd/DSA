@@ -24,27 +24,30 @@ int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n) {
 // #include <bits/stdc++.h>
 //optimal 
 
-int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n) {
-    unordered_set<int> mp ;
-    for(int i = 0 ; i < n ; i++ ){
-        mp.insert(arr[i]) ;
-    }
+#include <bits/stdc++.h>
 
-    int ans = 0 ;
-    for(auto it : mp){
-        int cnt = 1 ;
-        if(mp.find(it - 1 ) == mp.end() ){
-            int i = it ;
-            while(mp.find(i + 1) != mp.end() ){
-                cnt++ ;
-                i++ ;
-            }
-            ans = max(ans , cnt ) ;
+int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n) {
+    //we store all the elements in the set
+    unordered_set<int> st ;
+    for(int i = 0 ; i < n ; i++ ){
+        st.insert(arr[i]) ;
+    }
+    // now the set will take care of duplicates
+    int maxi = 1;
+    for(int it : st){
+        //checking if it is the starting element of the sequence in the arr
+        if(st.find(it-1) == st.end()){
+            /*if the above is false which means there is an element that is could
+             be the starting element but this is not the starting element */
+             int count = 1 ;
+             while(st.find(it+1) != st.end() ){
+                 count++ ;
+                 maxi = max(maxi,count) ;
+                 it = it + 1;
+             }
         }
     }
-    return ans ;
-    
+    return maxi ;
 }
-
 //time complexity : O(n) + O(2n)
 //space complexity : O(n)
