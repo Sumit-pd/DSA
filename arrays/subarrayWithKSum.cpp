@@ -8,6 +8,7 @@ int countSubarrays(int n, vector<int> &arr){
     //indicates there is 0 with frequency of 1 as the presum initially is 0
     for(int i = 0 ; i < n ; i++ ){
         presum += arr[i] ;
+        // count all the occurences of presum - k in the hashmap
         count += mp[presum] ;
         mp[presum]++ ;
     }
