@@ -7,7 +7,7 @@ space xomplexity = O(1)
 #include <bits/stdc++.h>
 int subarrayWithMaxProduct(vector<int> &arr){
 	int n = arr.size() ;
-	int maxi = INT_MIN ;
+	int maxi = INT_MIN ; // the maximum could be a negative number
 	int pre = 1 ;
 	int suff = 1 ;
 	for(int i = 0 ; i < n ; i++ ){

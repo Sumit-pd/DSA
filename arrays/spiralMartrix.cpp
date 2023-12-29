@@ -15,7 +15,7 @@ vector<int> spiralMatrix(vector<vector<int>>&arr) {
             ans.push_back(arr[i][right]) ;
         }
         right-- ;
-        // this is a check for avoiding the print of same line if there is only one girl
+        // this is a check for avoiding the print of same line if there is only one row
         if(top <= bottom ){
             //right to left
             for(int i = right ; i >= left ; i--){
@@ -24,7 +24,7 @@ vector<int> spiralMatrix(vector<vector<int>>&arr) {
              bottom-- ;
         }
        
-        // checking if there is top
+        // checking if there is only one column to void print of same element twice
         if(left <= right ){
             // top to bottom
             for(int i = bottom ; i >= top ; i--){
