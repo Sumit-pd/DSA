@@ -50,6 +50,7 @@ int majorityElemet(vector<int> arr)
         if (cnt == 0)
         {
             element = arr[i]; // we have neutralized the array , up to this part there is no majority element
+            cnt = 1 ;
         }
         else
         {
