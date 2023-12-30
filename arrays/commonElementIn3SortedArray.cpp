@@ -9,12 +9,12 @@ vector<int> findCommonElements(vector<int> &a, vector<int> &b, vector<int> &c)
         }
     }
     for(int it : b ){
-        if(mp[it] < 2 && mp[it] == 1){
+        if(mp[it] == 1){
             mp[it]++ ;
         }
     }
     for(int it : c ){
-        if(mp[it] < 3 && mp[it] == 2 ){
+        if(mp[it] == 2 ){
             mp[it]++ ;
             ans.push_back(it) ;
         }

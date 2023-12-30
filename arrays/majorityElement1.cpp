@@ -43,13 +43,14 @@ int majorityElemet(vector<int> arr)
     int cnt = 1;
     for (int i = 1; i < n; i++)
     {
-        if (arr[i] == cnt)
+        if (arr[i] == element)
         {
             cnt++
         }
         if (cnt == 0)
         {
-            element = arr[i]; // we have neutralized the array , up to this part there is no majority element
+            element = arr[i];
+            // we have neutralized the array , up to this part there is no majority element
             cnt = 1 ;
         }
         else
