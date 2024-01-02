@@ -5,6 +5,7 @@ using namespace std;
 vector<int> separateNegativeAndPositive(vector<int> &nums){
     vector<int> negative;
     vector<int> positive;
+    int n = nums.size();
     
     for(int it : nums){
         if(it < 0){
@@ -14,11 +15,12 @@ vector<int> separateNegativeAndPositive(vector<int> &nums){
         }
     }
 
-    vector<int> result;
-    result.insert(result.end(), negative.begin(), negative.end());
-    result.insert(result.end(), positive.begin(), positive.end());
+    for(int i = 0 ; i <= n/2 ; i++ ){
+        nums[2*i] = positive[i];
+        nums[(2*i)+1] = negative[i];
+    }
 
-    return result;
+    return nums;
 }
 
 int main(){

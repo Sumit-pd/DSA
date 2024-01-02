@@ -36,27 +36,32 @@ int majorityElement(vector<int> arr)
     return -1;
 }
 
-int majorityElemet(vector<int> arr)
-{
-    int n = arr.size();
-    int element = arr[0];
-    int cnt = 1;
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] == element)
-        {
-            cnt++
-        }
-        if (cnt == 0)
-        {
+
+int findMajorityElement(int arr[], int n) {
+	int element = arr[0] ;
+    int count = 1 ;
+    for(int i = 1 ; i < n ;i++ ){
+        if(count == 0){
             element = arr[i];
-            // we have neutralized the array , up to this part there is no majority element
-            cnt = 1 ;
+            count = 1 ;
         }
-        else
-        {
-            cnt--;
+        else if(element == arr[i]){
+            count++;
+        }
+        else{
+            count--;
         }
     }
-    return element;
+    count = 0 ;
+    for(int i = 0 ; i < n ;i++ ){
+        if(element == arr[i]){
+            count++;
+        }
+    }
+    if(count > n/2){ // more than n/2 not equal to 
+        return element;
+    }
+    else{
+        return -1;
+    }
 }
