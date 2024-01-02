@@ -1,5 +1,6 @@
 #include <bits/stdc++.h> 
 //brute force O(n3)
+//only unique triplets
 vector<vector<int>> findTriplets(vector<int>arr, int n, int K) {
 	set<vector<int>> st ;
 	for(int i = 0 ; i < n ; i++ ){
