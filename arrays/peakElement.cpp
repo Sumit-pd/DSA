@@ -30,10 +30,10 @@ int findPeakElement(vector<int> &arr) {
             return mid ;
         }
         else if(arr[mid] < arr[mid +1] ){
-            low = mid + 1;
+            low = mid + 1; // there is a peak element at the right 
         }
         else {
-            high = mid - 1;
+            high = mid - 1; // there is a peak element at the left
         }
     }
 }
