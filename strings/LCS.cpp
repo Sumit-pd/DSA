@@ -98,19 +98,6 @@ int lcs(string s, string t)
 //time compliexity : O(N*M)
 //space complexity : O(M)
 // where we are using the previous row we used previous array 
-#include<bits/stdc++.h>
-int helper(string s , string t , int i ,int j,vector<vector<int>> &dp ){
-    if(i == 0 || j == 0 ){
-        return 0 ;
-    }
-    if(dp[i][j] != -1){
-        return dp[i][j];
-    }
-    if(s[i-1] == t[j-1]){
-        return dp[i][j] = 1 + helper(s,t,i-1,j-1,dp);
-    }
-    return dp[i][j] = max(helper(s,t,i-1,j,dp),helper(s,t,i,j-1,dp));
-}
 int lcs(string s, string t)
 {
     int n = s.size() ;

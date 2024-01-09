@@ -42,6 +42,6 @@ long long getTrappedWater(long long* arr, int n) {
     }
     return ans ;
 //time complexity:O(3N)
-//space complexity : O(2N)
+//space complexity : O(2N)``
 
 }
