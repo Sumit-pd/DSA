@@ -46,6 +46,7 @@ string reverseOrderWords(string str) {
         if(l<r){
         //reverse  l -> r -1 
             reverse(str.begin()+l,str.begin()+r);
+            //this will reverse value till 1 val before r
             str[r++]=' ';
             l = r ;
         }
