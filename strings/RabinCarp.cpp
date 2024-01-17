@@ -29,7 +29,7 @@ long long updateHash(long long hash , char oldChar , char newChar , int patternL
 	//first remove the old character from the hash 
 	long long newHash = (hash - oldChar)/PRIME ;
 	// add the new char in the hash
-	newHash = newHash + newChar*pow(PRIME,patternLength-1);
+	newHash = newHash + newChar*pow(PRIME,patternLength-1); // multiplying with the last index of the pattern string
 	return newHash;
 }
 vector<int> stringMatch(string text, string pattern) {
