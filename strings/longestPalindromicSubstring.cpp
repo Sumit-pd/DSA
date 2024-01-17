@@ -1,39 +1,33 @@
-#include<bits/stdc++.h>
-string longestPalinSubstring(string str)
-{
-    int n=str.length();
-    int l,r;
-    int start=0;
-    int end=1;
+string longestPalinSubstring(string str) {
+    int maxi = INT_MIN ;
+    string ans = "" ;
+    int n = str.length() ;
+    for(int i = 0 ; i < n ; i++ ){
+// odd string
 
-    for(int i=1;i<n;i++)
-    {
-        //even substring
-        l=i-1;
-        r=i;
-        while(l>=0 && r<n && str[l]==str[r])
+        int left = i ;
+        int right = i ;
+        while(left >= 0 && right < n & str[left] == str[right])
         {
-            if(r-l+1 > end)
-            {
-                start=l;
-                end=r-l+1;              
+            if(right-left+1 > maxi){
+                ans = str.substr(left,right-left+1);
+                maxi = right-left+1 ;
             }
-            l--;
-            r++;
+            left--;
+            right++;
         }
-        // odd substring
-        l=i-1;
-        r=i+1;
-        while(l>=0 && r<n && str[l]==str[r])
+//even string
+        left = i-1 ;
+        right = i ;
+        while(left >= 0 && right < n & str[left] == str[right])
         {
-            if(r-l+1 > end)
-            {
-                start=l;
-                end=r-l+1;            
+            if(right-left+1 > maxi){
+                ans = str.substr(left,right-left+1);
+                maxi = right-left+1 ;
             }
-            l--;
-            r++;
+            left--;
+            right++;
         }
     }
-    return str.substr(start,end);
+    return ans ;
 }
