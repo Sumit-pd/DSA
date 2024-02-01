@@ -9,7 +9,7 @@ string writeAsYouSpeak(int n)
 	int cnt = 0 ;
 	for(int i = 0 ; i < smallAns.size() ; i++){
 		cnt++;
-		if(i == smallAns.size() || smallAns[i] != smallAns[i+1]){
+		if(i == smallAns.size()-1 || smallAns[i] != smallAns[i+1]){
 			ans = ans + to_string(cnt) + smallAns[i];
 			cnt = 0 ;
 		}
