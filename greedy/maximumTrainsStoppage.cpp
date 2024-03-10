@@ -18,7 +18,7 @@ int maxStop(vector<vector<int>> &trains, int n, int m)
             platform[platformNo] = {trains[i][0],trains[i][1]} ; // pair of arrival time and departure time
         }
         else{
-            if(platform[platformNo].second <= trains[i][0]){
+            if(platform[platformNo].second <= trains[i][0]){ // here we need to add a = this will not be the case for activity selection problem
                 //the train that have arrived has left
                 maxi++;
                 platform[platformNo] = {trains[i][0],trains[i][1]} ;  // pair of arrival time and departure time
