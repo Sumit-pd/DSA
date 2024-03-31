@@ -34,7 +34,7 @@ int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n) {
     }
     // now the set will take care of duplicates
     int maxi = 1;
-    for(int it : st){
+    for(int it : arr){
         //checking if it is the starting element of the sequence in the arr
         if(st.find(it-1) == st.end()){
             /*if the above is false which means there is an element that is could
