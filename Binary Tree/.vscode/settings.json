@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        ".env*": "dotenv",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "span": "cpp"
+    }
+}
