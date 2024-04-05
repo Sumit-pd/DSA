@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 int calculateMinPatforms(int at[], int dt[], int n) {
-    int minPlatforms = 0 ;
     sort(at,at+n) ;
     sort(dt,dt+n) ;
     int ans = 1 ;
