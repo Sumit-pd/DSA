@@ -1,36 +1,3 @@
-#include <bits/stdc++.h> 
-/*************************************************************
-    Following is the Binary Tree node structure
-
-    template <typename T>
-    class BinaryTreeNode 
-    {
-      public : 
-        T data;
-        BinaryTreeNode<T> *left;
-        BinaryTreeNode<T> *right;
-
-        BinaryTreeNode(T data) 
-        {
-            this -> data = data;
-            left = NULL;
-            right = NULL;
-        }
-
-        ~BinaryTreeNode() 
-        {
-            if (left)
-            {
-                delete left;
-            }
-            if (right)
-            {
-                delete right;
-            }
-        }
-    };
-
-*************************************************************/
 
 int findMax(BinaryTreeNode<int> * root ){
     if(root == NULL ){
@@ -79,4 +46,83 @@ bool validateBST(BinaryTreeNode<int>* root)
     }
 
     return true ;
+}
+
+/*********************************8*/
+
+
+bool helper(BinaryTreeNode<int> * root , int min , int max ){
+    if(root == NULL ){
+        return true ;
+    }
+
+
+    if ((root->data <= min) || (root->data >= max)) 
+    {
+        return false;
+    }
+
+    bool left = helper(root -> left , min , root -> data ) ;
+    bool right = helper(root -> right , root -> data , max ) ;
+
+    return left & right ;
+}
+bool validateBST(BinaryTreeNode<int>* root) 
+{
+    return helper(root , INT_MIN , INT_MAX) ;
+}
+
+
+TreeNode *solve(vector<int> &preOrder, int left, int right, int &index){
+
+ 
+
+    if(index >= preOrder.size())
+
+       return NULL;
+
+ 
+
+    if(preOrder[index] > left && preOrder[index] < right){
+
+ 
+
+        // Create a node
+
+        TreeNode *node = new TreeNode(preOrder[index++]);
+
+        if(index < preOrder.size()) node->left = solve(preOrder, left, node->data, index);
+
+        if(index < preOrder.size()) node->right = solve(preOrder, node->data, right, index);
+
+ 
+
+        return node;
+
+ 
+
+    }
+
+ 
+
+    return NULL;
+
+ 
+
+}
+
+ 
+
+TreeNode *preOrderTree(vector<int> &preOrder){
+
+    
+
+    int index = 0;
+
+ 
+
+    return solve(preOrder, INT_MIN, INT_MAX, index);
+
+    
+
 }
