@@ -7,7 +7,7 @@ class minHeap
         size++ ;
         int ind = size;
         arr[ind] = val ;
-        while (parent > 0 )
+        while (ind  > 0 )
         {
             int parent = floor(ind/2) ;
             if(arr[parent] > arr[ind]){

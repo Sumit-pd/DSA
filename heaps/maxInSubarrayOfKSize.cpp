@@ -45,7 +45,8 @@ vector<int> maxOfSubarray(vector<int> nums, int n, int k)
 	
 }
 
-#using smallest#include <bits/stdc++.h> 
+#using sets
+#include <bits/stdc++.h> 
 vector<int> maxOfSubarray(vector<int> nums, int n, int k) 
 {
 	 vector<int> ans;

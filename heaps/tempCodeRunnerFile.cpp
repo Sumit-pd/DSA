@@ -32,8 +32,6 @@ void heapSort(vector<int> &arr){
     {
         int last = size ;
         swap(arr[0],arr[last]);
-         // since the smallest element is at the starting it will be  placed in the end of array
-         //as it is a min heap so it will be storing the elements in descending order.
         heapify(arr,size-1,0);
         size--;
     }
