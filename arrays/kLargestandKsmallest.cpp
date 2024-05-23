@@ -9,35 +9,41 @@ vector<int> kthSmallLarge(vector<int> &arr, int n, int k)
 	ans.push_back(arr[n-k]);
 	return ans;
 }
+/*
+    Time complexity: O(N + KlogN)
+    Space complexity: O(N)
+
+    Where ‘N’ is the size of the given array and K is given integer.
+*/
+#include <queue>
+
 vector<int> kthSmallLarge(vector<int> &arr, int n, int k)
 {
-	vector<int> ans ;
-	priority_queue<int> maxHeap ;
-	priority_queue<int,vector<int>,greater<int>> minHeap ;
-	for(int i = 0 ; i < n ; i++ ){
-		maxHeap.push(arr[i]) ;
-		minHeap.push(arr[i]) ;
-	}
-	int K = k ;
-	while(k > 0 ){
-	//this is for k smallest
-		int front = minHeap.top() ;
-		minHeap.pop() ;
-		k--;
-		if(k == 0 ){
-			ans.push_back(front);
-		}
-	}
-	while(K > 0 ){
-	// this is for the k largest
-		int front = maxHeap.top() ;
-		maxHeap.pop() ;
-		K--;
-		if(K == 0 ){
-			ans.push_back(front);
-		}
-	}
-	return ans ;
-	
-		
+    vector<int> result(2);
+
+    // Build Min-Heap from the given array.
+    priority_queue<int, vector<int>, greater<int>> minHeap(arr.begin(), arr.end());
+
+    // Pop from Min-Heap exactly K-1 times
+    for(int i = 1; i < k; i++) 
+    {
+        minHeap.pop();
+    }
+
+    // Kth smallest element.
+    result[0] = minHeap.top();
+
+    // Build Max-Heap from the given array.
+    priority_queue<int> maxHeap(arr.begin(), arr.end());
+
+    // Pop from Max-Heap exactly K-1 times
+    for(int i = 1; i < k; i++) 
+    {
+        maxHeap.pop();
+    }
+
+    //Kth largest element.
+    result[1] = maxHeap.top();
+
+    return result;
 }
