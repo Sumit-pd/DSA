@@ -1,3 +1,38 @@
+
+//recursion way
+//this trick will work on any limit given in the question
+#include<bits/stdc++.h>
+int helper(vector<int> &values , int n , int ind , int buy , vector< vector<vector<int>> > &dp , int limit){
+    if(ind == n ){
+        return 0 ;
+        //we exausted the array so no profits to be made
+    }
+    if(limit == 0){
+        return 0 ;
+    }
+
+    if(dp[ind][buy][limit] != -1 ){
+        return dp[ind][buy][limit] ;
+    }
+    if(buy){
+        int WeBuy = helper(values,n,ind+1,0,dp,limit) - values[ind] ;
+        int weDoNot = helper(values,n,ind+1,1,dp,limit) ;
+        return dp[ind][buy][limit] = max( WeBuy , weDoNot  ) ;
+    }
+    else{
+        return dp[ind][buy][limit] = max(helper(values,n,ind+1,1,dp,limit-1)+values[ind],helper(values,n,ind+1,0,dp,limit)) ;
+    }
+}
+int maxProfit(vector<int>& prices)
+{
+    int n = prices.size() ;
+    vector< vector<vector<int>> > dp(n, vector<vector<int>>(2,vector<int>(3,-1))) ;
+    return helper(prices,n,0,1,dp,2) ;
+}
+
+
+
+/******************************************************************************************/
 int maxProfit(vector<int>& prices)
 {
     int n = prices.size() ;
