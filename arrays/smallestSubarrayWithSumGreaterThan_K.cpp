@@ -22,3 +22,27 @@ int shortestSubarrayWithSumK(vector<int> &arr, int k)
 
 
 //better
+//time complexity O(2n)
+// the sw can go on to i and then i can go on to n
+
+#include <bits/stdc++.h> 
+int minSubArrayLen(vector<int>& arr, int target, int n) {
+    int mini = 1e9 ;
+    int sum = 0 ;
+    int i = 0 , sw = 0 ;
+    while(i < n){
+        sum += arr[i] ;
+        if(sum > target){
+            mini = min(mini,i-sw+1) ;
+            while(sum > target && sw < i){
+                sum -= arr[sw] ;
+                sw++ ;  
+                if(sum > target){
+                    mini = min(mini,i-sw+1) ;
+                }
+            }
+        }
+        i++ ;
+    }
+    return mini != 1e9 ? mini : 0 ;
+}
