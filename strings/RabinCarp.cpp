@@ -18,6 +18,7 @@ vector<int> stringMatch(string text, string pattern) {
 // create the hash function 
 int PRIME = 101;
 long long computeHash(string str){
+	// this is rolling hash function
 	long long hash = 0 ;
 	for(int i = 0 ; i < str.length(); i++ ){
 		hash = hash + str[i] * pow(PRIME,i);
