@@ -1,4 +1,6 @@
 //memoization
+
+// the breaking should be in a way that after breaking the word all the parts of the word should be in the dictionary
 class Solution
 {
 public:
