@@ -1,4 +1,6 @@
 #include <bits/stdc++.h> 
+//here the reversals mean reverse str[i] to opposite 
+// in the swapping question we needed to swap among the chars of the string.
 int findMinimumCost(string str) {
   int n = str.length() ;
   if(n%2!= 0){
