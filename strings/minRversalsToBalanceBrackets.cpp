@@ -9,6 +9,8 @@ int findMinimumCost(string str) {
   int open = 0 ; 
   int close = 0 ;
   for(char it : str){
+    // removing the valid pairs
+    // add 
     if(it == '{'){
       open++;
     }
