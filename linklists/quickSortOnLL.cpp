@@ -10,6 +10,7 @@ Node * partition(Node * head , Node * tail ){
 	Node * cur = head -> next ;
 	Node * prev = head ;
 	while(cur != tail -> next ){
+		// the catch is that the element be either left of pivot or right ,we will only see that rest is taken care by recursion
 		if(cur -> data < pivot -> data){
 			swap(prev -> next -> data , cur -> data) ;
 			prev = prev -> next ;
