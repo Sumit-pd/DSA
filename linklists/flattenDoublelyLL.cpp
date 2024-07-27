@@ -7,7 +7,7 @@ public:
     Node* next;
     Node* child;
 };
-lass Solution {
+class Solution {
 public:
     Node* flatten(Node* head) {
         stack<Node *> st ;
