@@ -7,10 +7,11 @@ class minHeap
         size++ ;
         int ind = size;
         arr[ind] = val ;
-        while (ind  > 0 )
+        while (ind  > 1 )
         {
             int parent = floor(ind/2) ;
             if(arr[parent] > arr[ind]){
+                // as the parent need to be smaller
                 swap(arr[parent],arr[ind]);
                 ind = parent
             }
@@ -18,6 +19,8 @@ class minHeap
                 break ;
             }
         }
+
+        // we can also heapily the ind index it will take it to its correct place
     }
     void delete(){
         //deletion will be from the top 

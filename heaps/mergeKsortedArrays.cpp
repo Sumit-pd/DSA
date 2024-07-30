@@ -39,7 +39,7 @@ vector<int> mergeKSortedArrays(vector<vector<int>>&kArrays, int k)
     priority_queue<Node*,vector<Node*>,cmp> pq ;
     for(int i = 0 ; i < kArrays.size() ; i++ ){
         Node * newNode = new Node() ;
-        newNode -> data = kArrays[i][0] ;
+        newNode -> data = kArrays[i][0] ; // the first element of the array
         newNode -> i = i ;
         newNode->j = 0 ;
         pq.push(newNode) ;

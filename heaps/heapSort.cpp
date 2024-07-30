@@ -21,6 +21,8 @@ vector<int> buildMinHeap(vector<int> &arr)
 {
     int n = arr.size() ;
     for(int i = n/2 - 1; i >= 0 ; i-- ){
+        // we can start with first non leaf node 
+        // in almost complete binary tree half elements are leaf nodes
         heapify(arr,n,i) ;
     }
     return arr ;
@@ -36,6 +38,16 @@ void heapSort(vector<int> &arr){
          //as it is a min heap so it will be storing the elements in descending order.
         heapify(arr,size-1,0);
         size--;
+    }
+    
+}
+
+
+void heapSort2(int arr[],int n){
+    for (int i = 0; i < n; i++)
+    {
+        int val = // delete element from heap
+        arr[n-i-1] = val ;
     }
     
 }
