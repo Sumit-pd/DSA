@@ -89,5 +89,67 @@ pair<int,int> missingAndRepeating(vector<int> &arr, int n)
     return {(int)y,(int)x};
 }
 
+//optimal 2 
+// xor
+bool getBit(int n , int i){
+    int mask = 1 << i ;
+    if((n & mask) == 0){
+        return 0 ;
+    }
+    else{
+        return 1 ;
+    }
+}
+pair<int,int> fund(vector<int> arr , int n){
+    
+    int xorAllElem = 0 ;
+    for(int i = 0 ; i < n ; i++ ){
+        xorAllElem ^= arr[i] ;
+        xorAllElem ^= i+1 ;
+    }
 
+    int ind = 0 ;
+    for(int i = 0 ; i < sizeof(int) * 8 ; i++ ){
+        if(getBit(xorAllElem,i) == 1){
+            ind = i ;
+            break; 
+        }
+    }
+    int x = 0 ;
+    int y = 0 ;
+    for(int i = 0 ; i < n ; i++ ){
+        if(getBit(arr[i],ind) == 0){
+            x ^= arr[i] ;
+        }
+        else{
+            y ^= arr[i] ;
+        }
+    }
+
+    for(int i = 1 ; i <= n ; i++ ){
+        if(getBit(i,ind) == 0 ){
+            x ^= i ;
+        }
+        else{
+            y ^= i ;
+        }
+    }
+
+    int repeating = -1 ;
+    int missing = -1 ;
+
+    for(auto it : arr){
+        if(it == x){
+            repeating = x ;
+            missing = y ;
+        }
+        else if(it == y){
+            repeating = y ;
+            missing = x ;
+        }
+    }
+
+    return {missing,repeating} ;
+
+}
 
