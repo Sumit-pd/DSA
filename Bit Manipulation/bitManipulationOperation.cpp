@@ -19,11 +19,11 @@ class BitManipulation{
 
     int toggle(int n , int i){
         int mask = 1 << i ;
-        return n^i ;
+        return n^mask ;
     }
 
     int resetBit(int n , int i){
         int mask = 1 << i ;
-        return ~n & mask ;
+        return n & (~mask) ;
     }
 };
