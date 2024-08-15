@@ -23,7 +23,7 @@ vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
 // Online C++ compiler to run C++ program online
 #include <bits/stdc++.h>
 using namespace std;
-void bfs(char src , unordered_map<char,bool> &visited, map<char,vector<char>> &adj,int des){
+void bfs(char src , unordered_map<char,bool> &visited, map<char,vector<char>> &adj){
     queue<char> q ;
     q.push(src) ;
     visited[src] = true ;
