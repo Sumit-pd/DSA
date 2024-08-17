@@ -53,3 +53,37 @@ TreeNode<int>* getTreeFromPostorderAndInorder(vector<int>& postOrder, vector<int
 
 	
 }
+
+
+
+/*************************THIS ALSO WORKS************************** */
+
+TreeNode<int> * helper2(int inStart , int inEnd , vector<int> &inOrder , int &post , vector<int> &postOrder , unordered_map<int,int> &mp){
+     if(post < 0 || inStart > inEnd){
+          return NULL ;
+     }
+
+     TreeNode<int> * root = new TreeNode<int>(postOrder[post]) ;
+     post-- ;
+
+     int inIndex = mp[root -> data] ;
+     root -> right = helper2(inIndex+1,inEnd,inOrder,post,postOrder,mp) ;
+     root -> left = helper2(inStart,inIndex-1,inOrder,post,postOrder,mp) ;
+     return root ;
+}
+TreeNode<int>* getTreeFromPostorderAndInorder(vector<int>& postOrder, vector<int>& inOrder)
+{
+     if(inOrder.size() != postOrder.size()){
+          return NULL ;
+     }
+     unordered_map<int,int> mp ;
+     for(int i = 0 ; i < inOrder.size() ; i++ ){
+          mp[inOrder[i]] = i ;
+     }
+
+     int post = postOrder.size() - 1;
+
+     return helper2(0,inOrder.size()-1 ,inOrder,post ,postOrder,mp ) ;
+
+	
+}
