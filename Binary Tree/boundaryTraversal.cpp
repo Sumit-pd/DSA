@@ -59,6 +59,7 @@ void addRight(TreeNode<int> * root , vector<int> &ans ){
     else{
         addRight(root -> left , ans) ;
     }
+    //printing of right will be after all the element of lower part are printed
     ans.push_back(root -> val) ;
 }
 vector<int> boundaryTraversal(TreeNode<int> *root)
