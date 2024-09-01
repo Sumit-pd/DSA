@@ -102,12 +102,14 @@ bool getBit(int n , int i){
 }
 pair<int,int> fund(vector<int> arr , int n){
     
+    // find the xor of all the elements
     int xorAllElem = 0 ;
     for(int i = 0 ; i < n ; i++ ){
         xorAllElem ^= arr[i] ;
         xorAllElem ^= i+1 ;
     }
 
+    // find the right most set bit
     int ind = 0 ;
     for(int i = 0 ; i < sizeof(int) * 8 ; i++ ){
         if(getBit(xorAllElem,i) == 1){
@@ -115,6 +117,9 @@ pair<int,int> fund(vector<int> arr , int n){
             break; 
         }
     }
+
+
+    //now check the indth bit of each elem of the array
     int x = 0 ;
     int y = 0 ;
     for(int i = 0 ; i < n ; i++ ){
@@ -125,7 +130,7 @@ pair<int,int> fund(vector<int> arr , int n){
             y ^= arr[i] ;
         }
     }
-
+    // do the same for numbers from 1 to n
     for(int i = 1 ; i <= n ; i++ ){
         if(getBit(i,ind) == 0 ){
             x ^= i ;
@@ -134,6 +139,8 @@ pair<int,int> fund(vector<int> arr , int n){
             y ^= i ;
         }
     }
+
+    // one of them is the repeating number traverse in the array and figure that out
 
     int repeating = -1 ;
     int missing = -1 ;
