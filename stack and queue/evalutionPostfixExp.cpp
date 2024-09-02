@@ -18,30 +18,30 @@ int evaluatePostfix(string &postFix) {
 			st.push(postFix[i] - '0' ) ; 
 		}
 		else{
-				int b = st.top() ;
-				st.pop() ;
-				int a = st.top() ;
-				st.pop() ;
-				int val = 0  ;
-				switch(postFix[i]){
-					case '+' :
-						val = a+b ;
-						break ;
-					case '-':
-						val = a - b ;
-						break ;
-					case '*' :
-						val = a * b ;
-						break ;
-					case '/' :
-						val = a / b ;
-						break ;
-					case '^' :
-						val = a ^ b ; 
-					default : 
-						break ;
-				}
-				st.push(val) ;
+			int b = st.top() ;
+			st.pop() ;
+			int a = st.top() ;
+			st.pop() ;
+			int val = 0  ;
+			switch(postFix[i]){
+				case '+' :
+					val = a+b ;
+					break ;
+				case '-':
+					val = a - b ;
+					break ;
+				case '*' :
+					val = a * b ;
+					break ;
+				case '/' :
+					val = a / b ;
+					break ;
+				case '^' :
+					val = a ^ b ; 
+				default : 
+					break ;
+			}
+			st.push(val) ;
 		}
 	}
 	return st.top() ; 

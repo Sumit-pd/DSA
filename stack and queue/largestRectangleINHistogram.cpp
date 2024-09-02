@@ -21,14 +21,14 @@ int findPrevMin(vector<int> heights , int start , int x ){
   }
   return -1 ; // all of the rectangle's height is greater than the x
 }
- int largestRectangle(vector < int > & heights) {
+int largestRectangle(vector < int > & heights) {
   int maxi = 0 ; 
   int n = heights.size() ;
   for(int i = 0 ; i < n ;i++ ){
-  int prevMin = findPrevMin(heights, i , heights[i] ) ;
-  int nextMin = findNextMin(heights,i,heights[i] ) ;
-  int width = nextMin - prevMin - 1 ;
-  maxi = max(maxi, heights[i] * width) ;
+    int prevMin = findPrevMin(heights, i , heights[i] ) ;
+    int nextMin = findNextMin(heights,i,heights[i] ) ;
+    int width = nextMin - prevMin - 1 ;
+    maxi = max(maxi, heights[i] * width) ;
   }
   return maxi ;
  }

@@ -47,9 +47,9 @@ string infixToPostfix(string arr){
 		}
 	}
 
-		while(st.size()){
-			ans += st.top() ;
-			st.pop() ;
-		}
-		return ans ;
+	while(st.size()){
+		ans += st.top() ;
+		st.pop() ;
+	}
+	return ans ;
 }
