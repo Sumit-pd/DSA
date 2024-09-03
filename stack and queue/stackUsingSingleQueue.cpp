@@ -19,7 +19,8 @@ class Stack {
 
     void push(int element) {
         q.push(element) ;
-        for(int i = 0 ; i < q.size() - 1 ; i++ ){
+        int size = q.size() ;
+        for(int i = 0 ; i < size ; i++ ){
             int val = q.front() ;
             q.pop() ;
             q.push(val) ;
