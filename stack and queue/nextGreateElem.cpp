@@ -55,3 +55,25 @@ vector<int> nextGreaterElement(vector<int>& arr, int n)
 
 	return ans ;
 }
+
+//adding the circular array logic
+
+vector<int> nextGreaterElement(vector<int> &nums , int n){
+
+
+    vector < int > nge(n, -1);
+    stack < int > st;
+
+    for(int i = 2*n-1 ; i >= 0  ; i-- ){
+         while(st.size() && nums[i%n] >= st.top() ){
+             st.pop();
+         }
+         if(i<n){
+             if(st.size()) nge[i] = st.top() ;
+         }
+         st.push(nums[i%n]) ;
+    }
+
+
+      return nge;
+}
