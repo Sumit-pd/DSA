@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-bool isOperator(char ch){
+bool isOperand(char ch){
 	if( ch - 'a' >= 0 && ch - 'a' <=25 ){
 		return true ;
 	}
@@ -27,7 +27,7 @@ string infixToPostfix(string arr){
 		if(arr[i] == '(' ){
 			st.push(arr[i]) ;
 		}
-		else if(isOperator(arr[i])){
+		else if(isOperand(arr[i])){
 			ans += arr[i] ;
 		}
 		else if(arr[i] == ')' ){

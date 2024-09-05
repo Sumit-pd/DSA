@@ -20,7 +20,7 @@ class Stack {
     void push(int element) {
         q.push(element) ;
         int size = q.size() ;
-        for(int i = 0 ; i < size ; i++ ){
+        for(int i = 0 ; i < size-1 ; i++ ){
             int val = q.front() ;
             q.pop() ;
             q.push(val) ;
