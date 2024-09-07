@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 int blackBox(vector<vector<int>> matrix , int n ,int target){
     int cnt = 0 ;
-    //finding all the element smaller than target
+    //finding all the element smaller than equal to target
     for(int i = 0 ; i < n ; i++ ){
         cnt += upper_bound(matrix[i].begin(),matrix[i].end(),target) - matrix[i].begin();
     }
