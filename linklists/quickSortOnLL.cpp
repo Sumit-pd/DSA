@@ -8,7 +8,7 @@ Node * tail(Node * head){
 Node * partition(Node * head , Node * tail ){
 	Node * pivot = head ;
 	Node * cur = head -> next ;
-	Node * prev = head ;
+	Node * prev = head ; //Keeps track of the last node where an element less than the pivot was placed.
 	while(cur != tail -> next ){
 		// the catch is that the element be either left of pivot or right ,we will only see that rest is taken care by recursion
 		if(cur -> data < pivot -> data){
