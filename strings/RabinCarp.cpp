@@ -11,6 +11,26 @@ vector<int> stringMatch(string text, string pattern) {
 	return ans ;
 }
 
+// other appraoch of solving the same problem
+int stringMatch(string text , string pattern){
+	int n = text.length() ;
+	int m = pattern.length();
+	for(int i = 0 ; i < n - m +1 ; i++ ){
+		int t = i ;
+		int j = 0 ;
+		for(j = 0 ; j < m ; j++ ){
+			if(text[t] != pattern[j]){
+				break ;
+			}
+			t++ ;
+		}
+		if(j == m){
+			return i ;
+		}
+	}
+	return -1 ;
+}
+
 
 
 
