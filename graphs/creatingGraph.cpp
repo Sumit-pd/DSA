@@ -49,3 +49,6 @@ int main() {
 
     return 0;
 }
+
+
+// in a graph there could be at max n*(n-1) edges

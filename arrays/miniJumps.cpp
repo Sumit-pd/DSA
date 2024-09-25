@@ -16,6 +16,7 @@ class Solution{
             }
             maxReach = max(maxReach , i + arr[i] );
             if(lastJump == i ){
+                // here the lastJump is the max range a person can jump 
                 lastJump = maxReach ;
                 jumps++ ;
                 if(maxReach >= n -1 ){
