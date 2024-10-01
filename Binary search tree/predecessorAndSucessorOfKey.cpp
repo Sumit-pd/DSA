@@ -48,13 +48,14 @@ void helper(binaryTreeNode * root , int key , binaryTreeNode * &pred , binaryTre
         return;
 	}
 	else if(root -> data > key ){
-		succ = root ;
+		succ = root ; // this
 		helper(root -> left , key , pred , succ ) ;
 	}
 	else{
-		pred = root ;
+		pred = root ; // this
 		helper(root -> right , key , pred , succ  ) ;
 	}
+    // watch the striver's video to understand the same
 }
 vector<int> findPreSuc(binaryTreeNode *root, int key)
 {
