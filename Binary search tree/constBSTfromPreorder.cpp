@@ -1,33 +1,48 @@
- 
-TreeNode * helper(vector<int> &preOrder , int ind , int end  ){
-    if(ind == -1  ){
+#include <bits/stdc++.h> 
+/*
+    Following is the class structure of BinaryTreeNode class for referance:
+
+    class BinaryTreeNode {
+       public : 
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+
+        ~BinaryTreeNode() {
+            if (left){
+                delete left;
+            }
+            if (right){
+                delete right;
+            }
+        }
+    };
+*/
+
+BinaryTreeNode<int> * helper(vector<int> &preorder , int mini , int maxi , int &i){
+    if(i >= preorder.size()){
         return NULL ;
     }
 
-    TreeNode * root = new TreeNode(preOrder[ind] ) ;
-    int left = -1 ;
-    int right = -1 ;
-    for(int i = ind + 1  ; i <= end ; i++ ){
-        if(preOrder[i] < root -> data ){
-            left = i ;
-            break ;
-        }
+    if(preorder[i] < mini || preorder[i] > maxi){
+        return NULL ;
     }
 
-     for(int i = left != -1 ? left: ind + 1  ; i <= end ; i++ ){
-        if(preOrder[i] > root -> data ){
-            right = i ;
-            break ;
-        }
-    }
-
-    root -> left = helper(preOrder,left,right-1) ;
-    root -> right = helper(preOrder,right,end) ;
+    BinaryTreeNode<int> * root = new BinaryTreeNode<int>(preorder[i]) ;
+    i++ ;
+    root -> left = helper(preorder,mini,root -> data , i) ;
+    root -> right = helper(preorder,root-> data , maxi , i) ;
     return root ;
+
 }
-TreeNode *preOrderTree(vector<int> &preOrder)
-{
-    
-    return helper(preOrder,0,preOrder.size() -1 ) ;
-    
+
+BinaryTreeNode<int>* preorderToBST(vector<int> &preorder) {
+    int i = 0 ;
+    return helper(preorder,-1e9,1e9,i) ;
 }
