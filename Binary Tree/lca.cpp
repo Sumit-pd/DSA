@@ -39,5 +39,6 @@ int lowestCommonAncestor(TreeNode<int> *root, int x, int y)
         return leftCall ;
     }
     return root -> data ;
+    // the very place the data is splited that node is the lca
     
 }
