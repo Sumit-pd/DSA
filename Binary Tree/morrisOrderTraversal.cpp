@@ -8,7 +8,7 @@ vector<int> morrisTraversal(Node * root){
     while(cur != NULL ){
         if(cur -> left == NULL){
             ans.push_back(cur -> data) ;
-            cur = cur -> next ;
+            cur = cur -> right ;
         }
         else{
             Node * temp = root -> left ;
@@ -50,7 +50,7 @@ vector<int> morrisTraversal(Node * root){
             }
             if(temp -> right == NULL){
                 temp -> right = cur ;
-                ans.push_back(cur -> data) ;
+                ans.push_back(cur -> data) ; // here is the change
                 cur = cur -> left ;
             }
             else if(temp -> right = cur){
@@ -64,3 +64,4 @@ vector<int> morrisTraversal(Node * root){
 
 // this uses the concept of threaded binary tree
 // time complexity : O(N) + O(N)
+// space complexity : O(1)

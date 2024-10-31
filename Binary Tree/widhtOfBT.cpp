@@ -91,7 +91,7 @@ public:
         int size = q.size();
         int minInd = 0 ;
         int maxInd = 0 ;
-        int levelMin = q.front().second ;
+        int levelMin = q.front().second ; // this will be the first node of a level
         for (int i = 0; i < size ; i++)
         {
             auto front = q.front() ;
@@ -116,3 +116,5 @@ public:
     return ans ; 
     }
 };
+
+// we are doing a minus minIndex because there could a case of overflow when there is skew tree

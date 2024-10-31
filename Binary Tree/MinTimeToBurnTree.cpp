@@ -60,7 +60,8 @@ int timeToBurnTree(BinaryTreeNode<int>* root, int start)
         int size = q.size() ;
 
 
-        bool flag = false ;
+        bool flag = false ;  
+        // this will take care if there is an insertion of some element in the queue which indicates there will be some element to burn
         for(int i = 0 ; i < size ; i++ ){
             BinaryTreeNode<int> * node = q.front() ;
             q.pop() ;
