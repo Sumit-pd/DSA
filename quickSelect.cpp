@@ -18,8 +18,8 @@ class Solution {
         }
         swap(arr[j],arr[low]) ;
         return j;
-        }
-        int helper(vector<int> &arr ,int size, int K , int low , int high){
+    }
+    int helper(vector<int> &arr ,int size, int K , int low , int high){
         if(low > high) return -1 ;
 
         int part = partition(arr,low,high) ;
